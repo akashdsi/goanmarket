@@ -1,0 +1,44 @@
+Column(
+                  children: List.generate(2, (index) => ListTile(
+                    onTap: () {
+                      Get.to(() => ChatScreen());
+                    },
+                    leading: const CircleAvatar(
+                        backgroundColor: purpleColor,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        )),
+                    title: boldText(
+                        text: "${data[index]['sender_name']}",
+                        color: fontGrey,
+                        size: 14.0),
+                    subtitle: normalText(
+                        text: "${data[index]['last_msg']}",
+                        color: darkGrey),
+                    trailing: normalText(text: "time", color: darkGrey),
+                  )).toList(),
+                ),
+
+
+ child: Column(
+                  children: List.generate(2, (index) => ListTile(
+                    onTap: () {
+                      Get.to(() => ChatScreen());
+                    },
+                    leading: const CircleAvatar(
+                        backgroundColor: purpleColor,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        )),
+                    title: boldText(
+                        text: "username",
+                        color: fontGrey,
+                        size: 14.0),
+                    subtitle: normalText(
+                        text: "tas",
+                        color: darkGrey),
+                    trailing: normalText(text: "9:11 AM", color: darkGrey),
+                  )).toList(),
+                ),
