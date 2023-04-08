@@ -39,11 +39,13 @@ class orderScreen extends StatelessWidget {
               return LoadingIndicator();
             } else {
               var data = snapshot.data!.docs;
+              print(currentUser!.uid);
               return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SingleChildScrollView(
                     child: Column(
                       children: List.generate(data.length, (index) {
+
                         var time = data[index]['order_date'].toDate();
                         return ListTile(
                           onTap: () {
