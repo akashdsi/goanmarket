@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:goanmarketseller/services/store_services.dart';
@@ -51,6 +52,7 @@ class productsScreen extends StatelessWidget {
           } else {
             var data = snapshot.data!.docs;
 
+
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: SingleChildScrollView(
@@ -66,12 +68,12 @@ class productsScreen extends StatelessWidget {
                                       data: data[index],
                                     ));
                               },
-                              leading: Image.network(
-                                data[index]['p_img'][0],
-                                width: 100,
-                                height: 100,
-                                fit: BoxFit.cover,
-                              ),
+                          leading: Image.network(
+                            data[index]['p_imgs'][0],
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.cover,
+                          ),
                               title: boldText(
                                   text: "${data[index]['p_name']}",
                                   color: fontGrey,

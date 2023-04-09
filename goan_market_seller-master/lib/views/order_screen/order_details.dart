@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:goanmarketseller/views/controllers/orders_controller.dart';
 import 'package:goanmarketseller/views/order_screen/components/order_place.dart';
-import 'package:intl/intl.dart' as intl;
+import 'package:intl/intl.dart' ;
 import '../../const/const.dart';
 import '../widgets/our_button.dart';
 import '../widgets/normal_text.dart';
@@ -21,10 +21,12 @@ class _OrderdetailsState extends State<Orderdetails> {
   void initState() {
     super.initState();
     controller.getOrder(widget.data);
-    controller.confirmed.value  = widget.data['order_confirmed '];
-    controller.ondelivery.value  = widget.data['order_on_delivery '];
-    controller.delivered.value  = widget.data['order_delivered '];
-    // controller.confirmed.value  = widget.data['order_confirmed '];
+    controller.confirmed.value  = widget.data['order_confirmed'];
+    controller.ondelivery.value  = widget.data['order_on_delivery'];
+    controller.delivered.value  = widget.data['order_delivered'];
+    print(controller.confirmed.value);
+    print(controller.ondelivery.value);
+    print(controller.delivered.value);
 
   }
 
@@ -130,15 +132,13 @@ class _OrderdetailsState extends State<Orderdetails> {
                         title1: "order code",
                         title2: "shipping method"),
                     orderPlaceDetials(
-                        d1: intl.DateFormat()
-                            .add_yMd()
-                            .format((widget.data['order_date'])),
+                        d1: DateFormat.yMd().format(DateTime.fromMillisecondsSinceEpoch(widget.data['order_date'].millisecondsSinceEpoch)),
                         d2: "${widget.data['payment_method']}",
                         title1: "Order date",
                         title2: "Payment method"),
                     orderPlaceDetials(
                         d1: "Unpaid",
-                        d2: "order_placed ",
+                        d2: "order_placed",
                         title1: "paymentstatus",
                         title2: "deliverystatus"),
                     Padding(

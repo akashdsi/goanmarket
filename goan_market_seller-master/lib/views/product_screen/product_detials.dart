@@ -10,6 +10,7 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(data.data());
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -36,7 +37,7 @@ class ProductDetails extends StatelessWidget {
               viewportFraction: 1.0,
               itemBuilder: (context, index) {
                 return Image.network(
-                  data['p_imags'][index],
+                  data['p_imgs'][index],
                   width: double.infinity,
                   fit: BoxFit.cover,
                 );

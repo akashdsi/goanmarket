@@ -15,6 +15,8 @@ class Addproduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.find<Productscontroller>();
+
+
     return Obx(
       () => Scaffold(
         appBar: AppBar(
