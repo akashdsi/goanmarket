@@ -81,7 +81,6 @@ class ProfileScreen extends StatelessWidget {
                                           break;
                                         case 1:
                                           Get.to(() => const MessagesScreen());
-
                                       }
                                     },
                                     leading:

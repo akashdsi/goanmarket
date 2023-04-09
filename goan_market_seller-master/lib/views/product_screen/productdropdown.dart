@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:goanmarketseller/const/const.dart';
 import 'package:goanmarketseller/views/controllers/productscontroller.dart';
@@ -9,8 +7,8 @@ Widget productDropdown(hint, List<String> list, dropvalue, Productscontroller co
   return Obx(()=>
      DropdownButtonHideUnderline(
       child: DropdownButton(
-        value: dropvalue.value == "" ? null : dropvalue.value,
         hint: normalText(text: "$hint", color: fontGrey),
+        value: dropvalue.value == "" ? null : dropvalue.value,
         isExpanded: true,
         items: list.map((e) {
           return DropdownMenuItem(value: e, child: e.toString().text.make());

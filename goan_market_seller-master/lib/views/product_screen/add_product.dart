@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:goanmarketseller/views/controllers/productscontroller.dart';
 import 'package:goanmarketseller/views/product_screen/productdropdown.dart';
 import 'package:goanmarketseller/views/product_screen/productimages.dart';
@@ -15,22 +14,21 @@ class Addproduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.find<Productscontroller>();
-
-
     return Obx(
       () => Scaffold(
+        backgroundColor: purpleColor,
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: fontGrey),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               Get.back();
             },
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: purpleColor,
           title: boldText(text: "Add Products", size: 16.0),
           actions: [
             10.widthBox,
-            controller.isLoading.value ? LoadingIndicator(circle_Color: Colors.black) :
+            controller.isLoading.value ? LoadingIndicator(circle_Color: Colors.white) :
 
             TextButton(
                 onPressed: () async {
@@ -39,7 +37,7 @@ class Addproduct extends StatelessWidget {
                   await controller.uplaodProduct(context);
                   Get.back();
                 },
-                child: boldText(text: "Save", color: purpleColor)),
+                child: boldText(text: "Save", color: Colors.white)),
           ],
 
         ),
@@ -71,7 +69,7 @@ class Addproduct extends StatelessWidget {
                     label: 'Quantity',
                     controller: controller.pquantityController),
                 10.heightBox,
-                productDropdown("category", controller.categoryList,
+                productDropdown("Category", controller.categoryList,
                     controller.categoryvalue, controller),
                 10.heightBox,
                 productDropdown("SubCategory", controller.subCategoryList,
@@ -80,7 +78,7 @@ class Addproduct extends StatelessWidget {
                 const Divider(
                   color: Colors.black,
                 ),
-                boldText(text: "choose products images"),
+                boldText(text: "Choose Products Images"),
                 10.heightBox,
                 Obx(
                   () => Row(
@@ -107,7 +105,7 @@ class Addproduct extends StatelessWidget {
                   color: Colors.white,
                 ),
                 10.heightBox,
-                boldText(text: "choose products colors"),
+                boldText(text: "Choose Products Colors"),
                 10.heightBox,
                 Obx(
                   () => Wrap(
@@ -119,7 +117,7 @@ class Addproduct extends StatelessWidget {
                         VxBox()
                             .color(Vx.randomPrimaryColor)
                             .roundedFull
-                            .size(50, 50)
+                            .size(65, 65)
                             .make()
                             .onTap(() {
                           controller.selectedColorIndex.value = index;

@@ -27,13 +27,14 @@ class Productscontroller extends GetxController {
   var selectedColorIndex = 0.obs;
 
   getCategories() async {
+    categoryList.clear();
     var data = await rootBundle.loadString("lib/services/category_model.json");
     var cat = categoryModelFromJson(data);
     category = cat.categories;
   }
 
   populateCategoryList() {
-    category.clear();
+
     for (var item in category) {
       categoryList.add(item.name);
     }
@@ -66,7 +67,7 @@ class Productscontroller extends GetxController {
     for (var item in pImagesList) {
       if (item != null) {
         var filename = basename(item.path);
-        var destination = 'images/venders${currentUser!.uid}/$filename';
+        var destination = 'images/vendors/${currentUser!.uid}/$filename';
         Reference ref = FirebaseStorage.instance.ref().child(destination);
         await ref.putFile(item);
         var n = await ref.getDownloadURL();
